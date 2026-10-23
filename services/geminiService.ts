@@ -9,6 +9,9 @@ export interface GeminiAnalysisResult {
   explanation: string;
   findings: string[];
   appliedAlgorithms: string[];
+  aiModelUsed?: string;
+  isLiveModelOutput?: boolean;
+  legalAdmissibilityNote?: string;
 }
 
 /**
@@ -146,4 +149,40 @@ export const connectForensicLiveSession = (callbacks: {
       ws.close();
     }
   };
+};
+
+/**
+ * Sends an interactive cross-examination question to Gemma 4
+ */
+export const crossExamineForensicEvidence = async (params: {
+  query: string;
+  caseId: string;
+  verdict: string;
+  authenticityScore: number;
+  domainAnalysis: any;
+  findings: string[];
+}): Promise<{ answer: string; model: string; isLive: boolean; timestamp: string }> => {
+  const response = await fetch('/api/gemma/inquest', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(params),
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.error || `Server responded with ${response.status}`);
+  }
+
+  return response.json();
+};
+
+/**
+ * Retrieves AI model metadata from the server
+ */
+export const fetchModelMetadata = async () => {
+  const response = await fetch('/api/model-info');
+  if (!response.ok) {
+    throw new Error('Failed to retrieve model info');
+  }
+  return response.json();
 };

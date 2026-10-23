@@ -36,8 +36,8 @@ export const Technology: React.FC = () => {
           </div>
           <div className="p-4 bg-slate-900 rounded-lg border border-slate-700">
             <div className="text-forensic-accent font-mono text-xs mb-2">LAYER 3</div>
-            <div className="font-bold text-white">Explainability</div>
-            <div className="text-xs text-slate-500 mt-2">Gemini 3 Pro • Attention Maps</div>
+            <div className="font-bold text-white">Explainability & Legal XAI</div>
+            <div className="text-xs text-slate-500 mt-2">Gemma 4 (31B / 26B) • Daubert Compliance</div>
           </div>
         </div>
       </div>
@@ -87,9 +87,9 @@ export const Technology: React.FC = () => {
                <Code className="h-6 w-6 text-amber-400" />
              </div>
              <div>
-               <h3 className="text-xl font-bold text-white mb-2">Explainable AI (XAI)</h3>
+               <h3 className="text-xl font-bold text-white mb-2">Explainable AI (Gemma 4 XAI)</h3>
                <p className="text-slate-400 text-sm leading-relaxed">
-                 A black box verdict is useless in court. We use Google Gemini to generate natural language explanations of <i>why</i> a piece of media was flagged, bridging the gap between pixel data and human understanding.
+                 A black box verdict is useless in court. We utilize Google's open-weight <b>Gemma 4 (gemma-4-31b-it)</b> to synthesize natural-language, courtroom-ready forensic explanations and legal admissibility assessments under FRE Rule 901 and the Daubert standard.
                </p>
              </div>
            </div>

@@ -55,10 +55,13 @@ export interface ForensicReport {
   appliedAlgorithms: string[]; // List of specific algorithms used
 
   confidence: number;
-  explanation: string; // From Gemini
+  explanation: string; // From Gemma 4 / Gemini
   timelineData: AnomalyPoint[];
   findings: string[];
   analystNotes?: string;
+  aiModelUsed?: string;
+  isLiveModelOutput?: boolean;
+  legalAdmissibilityNote?: string;
 }
 
 export interface AnalysisRequest {

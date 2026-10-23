@@ -80,6 +80,9 @@ export const runDeepfakeScan = async (file: File, previewUrl: string, mediaType:
   let findings: string[] = [];
   let appliedAlgorithms: string[] = [];
   let domainAnalysis: ForensicReport['domainAnalysis'];
+  let aiModelUsed: string = 'Gemma 4 (gemma-4-31b-it)';
+  let isLiveModelOutput: boolean = false;
+  let legalAdmissibilityNote: string = 'Forensic report generated under Federal Rules of Evidence Rule 901 compliance guidelines.';
   
   if (mediaType === MediaType.IMAGE || mediaType === MediaType.VIDEO) {
     try {
@@ -89,14 +92,18 @@ export const runDeepfakeScan = async (file: File, previewUrl: string, mediaType:
         analysisInput = await extractVideoFrames(previewUrl);
       }
 
-      // EXECUTE GEMINI FORENSIC ENGINE
-      // We now pass the raw data and trust the AI's deep reasoning completely.
+      // EXECUTE GEMMA 4 FORENSIC ENGINE VIA SERVER API
       const aiResult = await analyzeImageWithGemini(analysisInput, mediaType);
       
       authenticityScore = aiResult.authenticityScore;
       explanation = aiResult.explanation;
       findings = aiResult.findings;
       appliedAlgorithms = aiResult.appliedAlgorithms || ["Deep Neural Scan", "Error Level Analysis"];
+      aiModelUsed = aiResult.aiModelUsed || 'Gemma 4 (gemma-4-31b-it)';
+      isLiveModelOutput = aiResult.isLiveModelOutput ?? false;
+      if (aiResult.legalAdmissibilityNote) {
+        legalAdmissibilityNote = aiResult.legalAdmissibilityNote;
+      }
       
       domainAnalysis = {
         biological: { 
@@ -192,6 +199,9 @@ export const runDeepfakeScan = async (file: File, previewUrl: string, mediaType:
     explanation,
     timelineData,
     findings,
-    analystNotes: ""
+    analystNotes: "",
+    aiModelUsed,
+    isLiveModelOutput,
+    legalAdmissibilityNote
   };
 };

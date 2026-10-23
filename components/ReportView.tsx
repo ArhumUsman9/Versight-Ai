@@ -133,10 +133,10 @@ export const ReportView: React.FC<ReportViewProps> = ({ report, imageSrc, onBack
            </table>
         </div>
 
-        {/* Methodology Section (NEW) */}
+        {/* Methodology & AI Model Specification */}
         <div className="mb-8">
-          <h2 className="text-sm font-bold text-slate-900 uppercase mb-4 border-b border-slate-200 pb-2">Applied Methodology & Algorithms</h2>
-          <div className="bg-slate-50 p-4 rounded border border-slate-200">
+          <h2 className="text-sm font-bold text-slate-900 uppercase mb-4 border-b border-slate-200 pb-2">Forensic Methodology & Open-Weight AI Architecture</h2>
+          <div className="bg-slate-50 p-4 rounded border border-slate-200 space-y-3">
              <div className="grid grid-cols-2 gap-4">
                 {report.appliedAlgorithms && report.appliedAlgorithms.map((algo, index) => (
                   <div key={index} className="flex items-center space-x-2 text-sm text-slate-700">
@@ -144,6 +144,15 @@ export const ReportView: React.FC<ReportViewProps> = ({ report, imageSrc, onBack
                      <span>{algo}</span>
                   </div>
                 ))}
+             </div>
+             <div className="pt-3 border-t border-slate-200 flex flex-col sm:flex-row justify-between text-xs text-slate-600">
+               <div>
+                 <span className="font-semibold text-slate-900">Reasoning Engine:</span> {report.aiModelUsed || 'Gemma 4 (gemma-4-31b-it)'}
+                 <span className="ml-2 font-mono text-[10px] text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">OPEN-WEIGHTS</span>
+               </div>
+               <div className="mt-1 sm:mt-0">
+                 <span className="font-semibold text-slate-900">Compliance:</span> {report.legalAdmissibilityNote || 'FRE Rule 901 / Daubert Standard'}
+               </div>
              </div>
           </div>
         </div>
