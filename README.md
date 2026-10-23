@@ -1,370 +1,298 @@
-# 🛡️ VeriSight Shield
+# VeriSight Shield
 
-### AI-Powered Image Authenticity Analysis & Digital Safety Platform
+**AI-Powered Image Authenticity Analysis & Digital Forensics**
 
-**Detect synthetic-image signals. Investigate metadata. Understand forensic evidence. Protect digital identities.**
+*Evidence-driven synthetic media detection. Explainable AI. Privacy-conscious digital safety.*
 
-**Status:** Active Development | **Category:** AI · Cybersecurity · Digital Forensics · Open Source
-
-**GitHub:** https://github.com/ArhumUsman9/Versight-Ai
+[Repository](https://github.com/ArhumUsman9/Versight-Ai) · [Report an Issue](https://github.com/ArhumUsman9/Versight-Ai/issues)
 
 ---
 
-## 1. Overview
+## Overview
 
-**VeriSight Shield** is an AI-powered digital forensics and image-authenticity analysis platform designed to help individuals, cybersecurity professionals, researchers, and organizations assess whether digital images may have been generated or manipulated using artificial intelligence.
+**VeriSight Shield** is an open-source digital forensics initiative focused on detecting AI-generated imagery, investigating digital image authenticity, and supporting individuals affected by synthetic media misuse.
 
-With the rapid development of generative AI, photorealistic images and synthetic media have become increasingly difficult to distinguish from genuine photographs.
+As generative artificial intelligence advances, distinguishing authentic photographs from synthetic or manipulated visual content has become increasingly challenging. Modern image-generation systems can produce highly realistic photographs, synthetic identities, and convincing visual scenes that may evade casual human inspection.
 
-VeriSight Shield aims to address this challenge through a combination of:
+VeriSight Shield addresses this challenge through a modular forensic-analysis architecture that combines **open-weight AI models, image metadata inspection, digital provenance analysis, and explainable AI reasoning**.
 
-- Open-weight AI image detection models
-- Hyperrealistic synthetic-image analysis
-- Digital image metadata inspection
-- EXIF and XMP forensic analysis
-- Image provenance verification
-- Explainable forensic assessments
-- Gemma 4-powered interpretation
-- Reusable AI Agent Skills
-- Privacy-conscious digital safety workflows
+The project places particular emphasis on responsible technology, digital identity protection, and the safety of individuals affected by non-consensual image manipulation, impersonation, and deepfake-related harassment.
 
-The platform places particular emphasis on protecting individuals, especially women affected by image-based harassment, impersonation, manipulated photographs, and non-consensual deepfake abuse.
+> **Our mission:** To make digital image authenticity assessment more accessible, evidence-driven, and transparent while advancing responsible AI adoption and digital safety.
 
-**Our mission is to make digital image analysis more accessible, understandable, and responsible.**
+## The Problem
 
----
+The growing accessibility of generative AI has introduced significant risks to digital trust and personal safety.
 
-## 2. Problem Statement
+AI-generated photographs, manipulated identities, and synthetic media can be used to facilitate misinformation, impersonation, reputational harm, and image-based abuse.
 
-Modern generative AI models can produce highly realistic human faces, portraits, environments, and photographic scenes.
+Conventional detection approaches face several limitations:
 
-These capabilities introduce significant challenges involving:
+- **Photorealistic generation:** Modern AI images may lack obvious visual inconsistencies.
+- **Incomplete metadata:** Social media platforms and messaging applications frequently remove or alter image metadata.
+- **Detection generalization:** A model trained on specific generators may perform poorly on images produced by newer systems.
+- **Limited interpretability:** Many classification tools provide predictions without sufficient supporting evidence.
+- **Privacy concerns:** Uploading sensitive personal photographs to unknown external services can introduce additional risks.
 
-- AI-generated misinformation
-- Non-consensual synthetic imagery
-- Digital impersonation
-- Identity misuse
-- Image-based cyberbullying
-- Fake photographic evidence
-- Manipulated online content
-- Social engineering and online fraud
+VeriSight Shield is designed to address these challenges through a structured, multi-signal forensic investigation workflow rather than relying exclusively on a single classification prediction.
 
-Traditional visual inspection is increasingly insufficient because many generated images no longer contain obvious artifacts.
+## Core Capabilities
 
-Additionally, metadata is often removed or modified when images are uploaded to social networks, compressed, or shared through messaging applications.
+The following capabilities define the intended application architecture. Individual features should be considered development targets until verified in the implementation.
 
-As a result, determining whether an image is genuine requires multiple investigative techniques rather than relying on a single visual observation.
+### AI-Generated Image Detection
 
-**VeriSight Shield is designed to combine AI-based detection with explainable digital forensic evidence to support more informed authenticity assessments.**
+A dedicated open-weight computer vision model analyzes uploaded image content for statistical patterns associated with synthetic image generation.
 
----
+The detection workflow is designed to investigate:
 
-## 3. Core Features
+- AI-generated human portraits and synthetic faces
+- Photorealistic and hyperrealistic generated imagery
+- Artificially generated scenes and objects
+- Images affected by resizing, compression, or metadata removal
+- Synthetic content produced by different image-generation architectures
 
-The capabilities below describe the project's intended architecture. Their implementation and availability must be verified against the current codebase.
+The system must use genuine pretrained-model inference, with documented preprocessing, model identity, and evaluation methodology.
 
-### 3.1 AI-Generated Image Detection
+### Digital Image Forensics
 
-Analyze uploaded images using dedicated open-weight image detection models.
+The forensic analysis layer examines available image properties and metadata to identify potentially relevant technical evidence.
 
-Target capabilities include:
+Analysis targets include EXIF and XMP metadata, file format, dimensions, compression characteristics, software identifiers, editing history indicators, and cryptographic hashes.
 
-- Synthetic image classification
-- Photorealistic AI-image assessment
-- Model-generated pattern recognition
-- Analysis of compressed synthetic images
-- Confidence and uncertainty reporting
-- Explainable classification results
+Where supported, the architecture also incorporates C2PA Content Credentials verification to assess cryptographically signed provenance information.
 
-The objective is to recognize synthetic-image signals even when images appear visually realistic.
+**Metadata findings are supporting evidence, not definitive proof of authenticity or manipulation.**
 
-**Important:** No classifier can guarantee perfect detection of AI-generated imagery. Results must be supported by evaluated model performance and presented with appropriate uncertainty.
+### Explainable AI Analysis
 
-### 3.2 Hyperrealistic Image Analysis
+VeriSight Shield is designed to deliver interpretable forensic assessments rather than unsupported binary classifications.
 
-VeriSight Shield aims to evaluate challenging AI-generated images, including:
-
-- AI-generated human portraits
-- Photorealistic synthetic faces
-- Artificially generated photographic scenes
-- Synthetic product photography
-- Images generated by modern diffusion and transformer-based models
-- AI images with removed metadata
-- Resized or recompressed synthetic media
-
-A visually convincing image must not automatically be classified as authentic.
-
-The detection system should rely on actual trained-model inference and validated forensic evidence.
-
-### 3.3 Metadata Forensics
-
-Inspect available technical properties of submitted image files.
-
-Supported analysis targets include:
-
-- EXIF metadata
-- XMP metadata
-- File format and dimensions
-- Image resolution
-- Camera and software information
-- Editing and processing tags
-- Available timestamps
-- Compression characteristics
-- Cryptographic file hashes
-- Embedded provenance information
-
-Metadata can provide valuable investigative context, but the absence of metadata does not establish that an image is fake.
-
-### 3.4 Image Provenance Verification
-
-The proposed provenance module investigates available information about an image's origin and processing history.
-
-Where supported, it may include verification of signed C2PA Content Credentials.
-
-This helps distinguish cryptographically verifiable provenance statements from ordinary editable metadata.
-
-However, provenance information does not independently prove that every depicted event is truthful.
-
-### 3.5 Explainable AI Results
-
-VeriSight Shield is designed to provide more than a binary real-or-fake label.
-
-Reports should present:
-
-- Image analysis outcome
-- Model-generated classification signals
-- Supporting forensic evidence
-- Metadata observations
-- Detection limitations
-- Uncertainty indicators
-- Recommended verification steps
+The evidence engine combines model predictions with available forensic observations to generate structured findings.
 
 The intended assessment categories are:
 
-| Classification | Meaning |
+| Assessment | Interpretation |
 |---|---|
-| Likely AI-Generated | Model evidence suggests synthetic generation |
-| Possible Manipulation | Indicators suggest image editing or compositing |
-| No Strong Synthetic Indicators Detected | Available checks found no strong synthetic signal |
-| Inconclusive | Evidence is insufficient, conflicting, or unavailable |
+| Likely AI-Generated | Evaluated detection signals indicate possible synthetic image generation. |
+| Possible Manipulation | Available evidence suggests editing or compositing that warrants further investigation. |
+| No Strong Synthetic Indicators Detected | The implemented checks did not identify strong evidence of synthetic generation. |
+| Inconclusive | Evidence is insufficient, conflicting, or unavailable. |
 
-**No Strong Synthetic Indicators Detected does not mean the image has been proven authentic.**
+An inconclusive result is preferable to an unsupported claim of authenticity.
 
-Whole-image synthetic generation and localized face manipulation are separate detection problems requiring appropriate models and evaluation.
+### Gemma 4 Integration
 
-### 3.6 Gemma 4 AI Integration
+The proposed AI reasoning layer uses **Google Gemma 4 through the Gemini API** to interpret structured forensic evidence and assist with investigation workflows.
 
-VeriSight Shield's planned hackathon architecture uses **Gemma 4 through the Gemini API** as an AI reasoning and explanation component.
+Its responsibilities include:
 
-Gemma 4 is intended to:
+- Evidence interpretation and contextual explanation
+- Structured forensic report generation
+- Investigation workflow and Agent Skill selection
+- Human-readable presentation of technical findings
+- Multilingual explanations and digital safety guidance
 
-- Interpret structured forensic findings
-- Generate understandable analysis summaries
-- Explain evidence and uncertainty
-- Support multilingual explanations
-- Recommend appropriate Agent Skills
-- Provide digital safety guidance
-- Help prepare structured investigation reports
+Gemma operates as a reasoning and explanation component. It must not fabricate image-classification results, metadata, provenance records, or confidence values.
 
-Gemma must only interpret supplied analysis data. It must not invent model predictions, metadata, forensic observations, or confidence scores.
+### Modular Agent Skills
 
-### 3.7 Reusable Agent Skills
+VeriSight Shield incorporates a modular investigation design based on the [Agent Skills Open Standard](https://agentskills.io/specification).
 
-The project adopts the Agent Skills Open Standard to support modular AI-assisted investigation workflows.
+The proposed skills registry provides reusable workflows for image-authenticity triage, metadata forensics, provenance verification, and digital safety response.
 
-Planned predefined skills include:
+Each skill is defined through a standardized `SKILL.md` file, enabling transparent instructions, controlled execution, and extensibility.
 
-| Agent Skill | Purpose |
+## System Architecture
+
+The architecture separates image processing, model inference, forensic evidence collection, interpretation, and presentation.
+
+```mermaid
+flowchart TD
+    A[User Image Upload] --> B[Secure File Validation]
+    B --> C[Forensic Processing Pipeline]
+
+    C --> D[Open-Weight Image Detector]
+    C --> E[Metadata Analysis]
+    C --> F[Provenance Verification]
+
+    D --> G[Evidence Aggregation]
+    E --> G
+    F --> G
+
+    G --> H[Assessment and Uncertainty Policy]
+    H --> I[Gemma 4 Reasoning Layer]
+    J[Agent Skills Registry] --> I
+
+    I --> K[Explainable Investigation Report]
+    K --> L[User Dashboard]
+```
+
+### Technology Architecture
+
+| Layer | Technology / Approach |
 |---|---|
-| Image Authenticity Triage | Coordinate image-authenticity assessment |
-| Metadata Forensics | Inspect available metadata and file properties |
-| Provenance Verification | Analyze available origin and credential information |
-| Victim Safe Response | Provide responsible digital safety guidance |
-| Custom Skill Template | Support reusable, validated workflows |
+| Image Intelligence | Dedicated open-weight computer vision model |
+| AI Reasoning | Gemma 4 via Gemini API |
+| Forensic Processing | Python-based image analysis |
+| Metadata Inspection | EXIF/XMP extraction and file inspection |
+| Provenance | C2PA verification where supported |
+| Agent Workflows | Agent Skills Open Standard |
+| API Design | OpenAPI 3.1 specification |
+| Source Control | Git and GitHub |
+| Application Security | Input validation, data minimization, and controlled execution |
 
-Each skill is intended to have a dedicated `SKILL.md` containing its purpose, operating instructions, input requirements, limitations, and permitted operations.
+The exact frontend framework, dependencies, model checkpoints, and runtime configuration are determined by the implemented codebase.
 
-Reference: https://agentskills.io/specification
+## Privacy, Security, and Responsible AI
 
----
+VeriSight Shield is designed around privacy-conscious image processing and responsible forensic interpretation.
 
-## 4. System Architecture
+### Privacy Principles
 
-VeriSight Shield uses a modular design that separates image processing, AI inference, forensic interpretation, and report generation.
+**Data minimization:** Process only information necessary to perform the requested analysis.
 
-**Processing flow:**
+**Controlled processing:** Avoid persistent storage of uploaded images unless explicitly required and authorized.
 
-1. User uploads an image.
-2. Application validates file type, format, and size.
-3. Image is processed in a controlled environment.
-4. An image-detection model evaluates synthetic-image signals.
-5. A forensic module extracts available metadata and provenance information.
-6. A decision engine organizes evidence and evaluates uncertainty.
-7. Gemma 4 interprets minimized structured findings.
-8. The application presents an explainable assessment.
-9. The user may export a redacted investigation report.
+**Third-party transmission:** Do not forward sensitive original photographs to external AI providers without informed consent.
 
-### Main Components
+**Metadata protection:** Prevent sensitive location data and identifying metadata from appearing unnecessarily in exported reports.
 
-| Component | Responsibility |
-|---|---|
-| User Interface | Upload, preview, investigation workspace and reporting |
-| Validation Layer | File validation and safe image handling |
-| AI Detection Engine | Dedicated open-weight image inference |
-| Metadata Engine | EXIF, XMP and file property inspection |
-| Provenance Module | Available origin and content credential verification |
-| Evidence Engine | Evidence fusion and uncertainty policy |
-| Gemma 4 Integration | Structured analysis interpretation |
-| Agent Skills Registry | Reusable investigation workflows |
-| Report Generator | Explainable findings and redacted exports |
+**Secure credentials:** Keep API keys and service credentials outside committed source code and client-side bundles.
 
-The model inference engine must produce genuine model outputs, not randomized or simulated detection percentages.
+**Responsible reporting:** Provide evidence-preservation guidance without encouraging the circulation of intimate or abusive images.
 
----
+These principles represent required controls and must be verified through implementation and security testing before accepting sensitive submissions.
 
-## 5. Technology Stack
+### Digital Safety Initiative
 
-The planned architecture uses the following technologies or technology categories.
+VeriSight Shield is particularly motivated by the risks of non-consensual synthetic imagery and image-based harassment.
 
-| Technology | Purpose |
-|---|---|
-| Python | Forensic processing and AI integration |
-| Open-weight vision model | Synthetic-image detection |
-| Google Gemma 4 | AI reasoning and explanation |
-| Gemini API | Hosted Gemma 4 inference |
-| Pillow and supporting imaging tools | Image processing and metadata extraction |
-| Agent Skills Open Standard | Reusable skills framework |
-| GitHub | Source control and open-source collaboration |
-| OpenAPI 3.1 | Proposed future service API contract |
+The project aims to support affected individuals through accessible forensic information, transparent assessments, and responsible guidance for documenting and reporting suspected misuse.
 
-The final frontend framework, backend runtime, image-detector checkpoint, library versions, and deployment stack must match the actual project implementation.
+It does not establish identity, determine consent, verify legal culpability, or replace certified forensic examination.
 
-### Model Transparency
+## Model Reliability and Limitations
 
-Before public release, the repository should document:
+AI-generated image detection is probabilistic and remains an active research area.
 
-- Exact image-detection model name
-- Model checkpoint and revision
-- Model licence
-- Model preprocessing requirements
-- Supported image formats
-- Known detection limitations
-- Evaluation dataset composition
-- Measured false positives and false negatives
+Detection reliability can vary depending on the image generator, compression method, resolution, post-processing pipeline, and similarity to the model's training distribution.
 
-The licence for each third-party model remains separate from the licence covering original application code.
+Important distinctions include:
 
----
+- Detecting a fully AI-generated image is not equivalent to detecting a localized face swap.
+- Missing metadata does not prove synthetic generation.
+- A low synthetic-image score does not prove that an image is authentic.
+- Content credentials can support provenance verification but do not independently establish the truthfulness of an image.
+- Detection scores must not be presented as calibrated probabilities without appropriate validation.
 
-## 6. Getting Started
+The platform is intended to support forensic investigation and informed decision-making, not provide absolute authenticity guarantees.
 
-### Prerequisites
+## Installation and Configuration
 
-- Git
-- Required runtime and package manager for the implemented application
-- Google AI Studio API key, if Gemma integration is enabled
-- Sufficient computational resources for the selected image-detection model
-
-### Clone the Repository
+Clone the repository:
 
 ```bash
 git clone https://github.com/ArhumUsman9/Versight-Ai.git
 cd Versight-Ai
 ```
 
-### Environment Configuration
-
-For integrations using the Gemini API, configure the relevant server-side environment variable:
+For Gemini API integration, configure a server-side environment variable:
 
 ```env
-GEMINI_API_KEY=your_google_ai_studio_api_key
+GEMINI_API_KEY=your_api_key
 ```
 
-Never commit actual API keys, credentials, private images, or sensitive reports to the repository.
+The installation commands, package dependencies, model-loading configuration, and execution instructions will be documented against the verified application implementation.
 
-Installation and application start commands must be taken from the verified project configuration rather than assumed.
+API keys, private datasets, uploaded images, and sensitive reports must never be committed to version control.
 
-The final README should include exact commands after the project's runtime and package manifests have been confirmed.
+## Testing and Quality Assurance
+
+The project follows an evidence-driven evaluation strategy covering functionality, model reliability, security, and privacy.
+
+Core validation areas include:
+
+**Functional validation**
+- Upload handling and file validation
+- Forensic metadata extraction
+- Model inference and output handling
+- Evidence aggregation and report generation
+- Agent Skill execution and error handling
+
+**Model evaluation**
+- Genuine versus synthetic image classification
+- Performance on hyperrealistic synthetic imagery
+- Robustness to resizing and compression
+- Generalization to unseen generators
+- False-positive and false-negative analysis
+- Inconclusive-result handling
+
+**Security validation**
+- Malformed and oversized file handling
+- Sensitive metadata exposure
+- API key protection
+- External API failure handling
+- Unauthorized skill execution prevention
+- Data retention and deletion behavior
+
+Measured model performance and test results should be published only after reproducible evaluation.
+
+## Open-Source Development
+
+VeriSight Shield is being developed as an extensible open-source project intended to encourage collaboration across artificial intelligence, cybersecurity, and digital forensics.
+
+Contributions are encouraged in the following areas:
+
+- Synthetic media detection and model evaluation
+- Digital image forensics
+- Privacy-preserving machine learning
+- Explainable AI
+- Secure application engineering
+- Provenance verification
+- Agent Skill development
+- Accessibility and technical documentation
+
+Contributions involving test imagery must respect copyright, consent, licensing requirements, and personal privacy.
+
+## Hacktoberfest Hack Day
+
+VeriSight Shield is being developed with the technical goals of the **Hacktoberfest Hack Day Faisalabad** Open-Source AI challenges in mind.
+
+The intended submission demonstrates the practical application of open-weight AI, Gemma 4-based reasoning, transparent forensic workflows, and reusable Agent Skills.
+
+**Target categories:**
+- Best Open-Source AI Project
+- Best Use of Gemma 4
+
+The final submission must include a publicly accessible repository, an appropriate open-source licence, model documentation, reproducible execution instructions, and a functioning demonstration.
+
+## Project Roadmap
+
+| Milestone | Scope |
+|---|---|
+| MVP | Image upload, real model inference, metadata inspection, explainable results |
+| Forensic Enhancement | Provenance checks, improved evidence fusion, hyperrealistic image evaluation |
+| AI Integration | Gemma-based evidence interpretation and reusable Agent Skills |
+| Security Hardening | Privacy verification, secure processing, input validation, adversarial testing |
+| Production Readiness | Model benchmarking, monitoring, deployment automation, and reliability improvements |
+
+## Project Maintainer
+
+**Arhum Usman**
+
+Computer Science | Cybersecurity | Digital Forensics | AI Systems Development
+
+[GitHub](https://github.com/ArhumUsman9) · [LinkedIn](https://www.linkedin.com/in/arhumusman/)
+
+## License
+
+The project is intended for release under the **MIT License** for its original application code. This takes effect when the appropriate licence file is committed to the repository.
+
+Third-party models, pretrained weights, libraries, and datasets remain subject to their respective licences and usage conditions.
 
 ---
 
-## 7. Security and Privacy
+**VeriSight Shield**
 
-**Privacy and user safety are fundamental design requirements of VeriSight Shield.**
-
-Images submitted for authenticity investigations may contain sensitive personal information.
-
-The platform is designed around the following principles.
-
-### Data Minimization
-
-Only collect or process information necessary for image analysis.
-
-### Controlled Image Processing
-
-Avoid storing uploaded images by default.
-
-Where temporary files are required, their lifecycle and deletion behavior must be explicitly documented and verified.
-
-### Third-Party AI Privacy
-
-Sensitive original images should not be forwarded to external AI services without explicit, informed user consent.
-
-Where feasible, external language-model requests should contain minimized structured forensic results instead of original images.
-
-### Secure File Handling
-
-The application should validate file signatures, enforce upload limits, reject malformed files, and protect against unsafe image-processing behavior.
-
-### Secure API Integration
-
-Credentials must be kept server-side and excluded from Git history and frontend bundles.
-
-### Privacy-Safe Reporting
-
-Exported reports should avoid unnecessarily exposing faces, GPS coordinates, sensitive identifiers, or intimate content.
-
-### Responsible Digital Safety
-
-The application should provide safe evidence-preservation and reporting guidance without encouraging the redistribution of abusive imagery.
-
-**These safeguards describe required system behavior and must be verified in the deployed implementation before accepting sensitive real-world submissions.**
-
----
-
-## 8. Women's Digital Safety Initiative
-
-VeriSight Shield places a particular emphasis on supporting women and other individuals experiencing digitally manipulated image abuse.
-
-Potential applications include:
-
-- Assessing suspected synthetic images
-- Investigating possible manipulated portraits
-- Supporting evidence documentation
-- Explaining technical forensic findings
-- Providing safer reporting guidance
-- Helping users understand uncertainty in AI-generated image detection
-
-The project aims to empower individuals through accessible digital forensic information.
-
-VeriSight Shield does not establish a person's identity, verify consent, determine legal culpability, or replace professional forensic investigations.
-
----
-
-## 9. Testing and Model Evaluation
-
-Reliable AI-generated image detection requires systematic evaluation.
-
-The proposed testing strategy covers:
-
-### Functional Testing
-
-- Image upload and validation
-- Supported file formats
-- Metadata extraction
-- Model inference
-- Report generation
-- Gemma API integration
-- Agent Skill validation
-
-### AI Model
+*Advancing Digital Trust Through Explainable AI and Responsible Forensics.*
